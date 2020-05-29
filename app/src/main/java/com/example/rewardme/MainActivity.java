@@ -7,14 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnAddChild;
+    Button btnAddChild, btnRefrsh;
     ArrayList<Kids> kidsArr;
     KidsAdapter ka;
     ListView lv;
@@ -36,8 +35,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Kids n = kidsArr.get(position);
+                Intent i = new Intent(MainActivity.this, ChildInfoActivity.class);
+                i.putExtra("selected", n);
+                startActivity(i);
+            }
+        });
+                kidsArr.clear();
+                DBHelper dbhelper = new DBHelper(MainActivity.this);
+                kidsArr.addAll(dbhelper.getData());
+                dbhelper.close();
+                ka.notifyDataSetChanged();
+
+        btnAddChild.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, AddChildActivity.class);
-                i.putExtra("todo", n);
                 startActivity(i);
             }
         });

@@ -8,8 +8,9 @@
 
     <ImageView
         android:id="@+id/ivAvatar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="fill"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -27,13 +28,13 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             tools:srcCompat="@android:drawable/btn_star_big_on" />
 
         <TextView
             android:id="@+id/tvStarCount"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textColor="#0C0B0B"

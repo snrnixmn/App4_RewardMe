@@ -15,10 +15,10 @@ public class KidsAdapter extends ArrayAdapter<Kids> {
     ArrayList<Kids> kids;
     int resource;;
     TextView tvChildName, tvStarCount;
-    ImageView ivAvatar;
+    ImageView ivAvatar,ivStar;
 
-    public KidsAdapter(Context context, int resource, ArrayList<Kids> notes) {
-        super(context, resource, notes);
+    public KidsAdapter(Context context, int resource, ArrayList<Kids> kids) {
+        super(context, resource, kids);
         this.context = context;
         this.kids = kids;
         this.resource = resource;
@@ -35,12 +35,16 @@ public class KidsAdapter extends ArrayAdapter<Kids> {
         tvChildName = (TextView) rowView.findViewById(R.id.tvChildName);
         tvStarCount = (TextView) rowView.findViewById(R.id.tvStarCount);
         ivAvatar = (ImageView) rowView.findViewById(R.id.ivAvatar);
+        ivStar = (ImageView) rowView.findViewById(R.id.imageView2);
+
+        System.out.println(kids.get(position));
 
         Kids kid = kids.get(position);
 
         tvChildName.setText(kid.getName());
-        tvStarCount.setText(kid.getStarCount());
-        // ivAvatar.setImageResource();
+        tvStarCount.setText("Stars: " + kid.getStarCount());
+        ivAvatar.setImageResource(R.drawable.flower);
+        ivStar.setImageResource(android.R.drawable.btn_star_big_on);
 
         return rowView;
     }

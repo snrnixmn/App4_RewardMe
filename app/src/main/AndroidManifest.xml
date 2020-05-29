@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddChildActivity"></activity>
+        <activity android:name=".EditChoresActivity"></activity>
+        <activity android:name=".AddChoresActivity" />
+        <activity android:name=".TestActivity" />
+        <activity android:name=".ChildInfoActivity" />
+        <activity android:name=".AddChildActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
